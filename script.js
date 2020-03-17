@@ -4,6 +4,10 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+$(function() {
+  
+}); 
+
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
