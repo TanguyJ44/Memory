@@ -10,10 +10,28 @@
     background: #2980b9;
   }
   
+  .header {
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 10%;
+    width: 80%;
+    height: 120px;
+    border-radius: 10px;
+    background-color: #3498db;
+  }
+
+  .header h1 {
+    position: relative;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+  }
+
   .memory-game {
+    margin-top: 200px;
+    margin-left: 35%;
     width: 640px;
     height: 640px;
-    margin: auto;
     display: flex;
     flex-wrap: wrap;
     perspective: 1000px;
