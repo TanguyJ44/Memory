@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
+
 * {
     padding: 0;
     margin: 0;
@@ -9,6 +11,100 @@
     display: flex;
     background: #2980b9;
   }
+
+
+  /*   HOME MENU   */
+
+  .menu {
+    position: relative;
+    margin-top: 3%;
+    margin-left: 10%;
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+    box-shadow: 8px 8px 12px #aaa;
+    background-color: #27ae60;
+  }
+
+  .menu h1 {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Patrick Hand SC', cursive;
+    color: white;
+  }
+
+  .left-panel {
+    float: left;
+    position: relative;
+    margin-top: 2%;
+    margin-left: 5%;
+    width: 42%;
+    height: 60%;
+    border-radius: 10px;
+    background-color: teal;
+  }
+
+  .right-panel {
+    float: right;
+    position: relative;
+    margin-top: 2%;
+    margin-right: 5%;
+    width: 42%;
+    height: 60%;
+    border-radius: 10px;
+    background-color: teal;
+  }
+
+
+  .play {
+    margin-top: 2%;
+    margin-left: 40%;
+    padding: 10px 4%;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Patrick Hand SC', cursive;
+    color: white;
+    background-color: #27ae60;
+    text-decoration: none;
+  }
+  .play:hover {
+    color: #27ae60;
+    background-color: white;
+  }
+
+
+  /*   GAME PANEL   */
+
+  .game {
+    position: relative;
+    margin-top: 3%;
+    margin-left: 10%;
+    width: 80%;
+    height: 1000px;
+    border-radius: 10px;
+    box-shadow: 8px 8px 12px #aaa;
+    background-color: #27ae60;
+  }
+
+  .game h1 {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Patrick Hand SC', cursive;
+    color: white;
+  }
+
+
+
+
+
+
   
   .header {
     position: absolute;
@@ -60,8 +156,8 @@
   }
 
   .memory-game {
-    margin-top: 200px;
-    margin-left: 35%;
+    margin-top: 5px;
+    margin-left: 25%;
     width: 640px;
     height: 640px;
     display: flex;

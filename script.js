@@ -5,8 +5,21 @@ let lockBoard = false;
 let firstCard, secondCard;
 
 $(function() {
-  
+  $('.game').css({'right' : '100%'});
+  $('.game').hide();
 }); 
+
+$('.play').click(function() {
+  $('.menu').animate({'right' : '100%'}, 1500);
+
+  setTimeout( function() {
+    $('.menu').hide();
+    $('.game').show();
+    $('.game').animate({'left' : '2%'}, 1500);
+  }, 1500 );
+
+
+});
 
 function flipCard() {
   if (lockBoard) return;
