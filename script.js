@@ -17,9 +17,20 @@ $('.play').click(function() {
     $('.game').show();
     $('.game').animate({'left' : '2%'}, 1500);
   }, 1500 );
-
-
 });
+
+function cardSelector (selector) {
+
+}
+
+function gameSelector (selector) {
+
+  for (let index = 0; index < 4; index++) {
+    document.getElementById('ls'+index).style.backgroundColor = "";
+  }
+
+  document.getElementById('ls'+selector).style.backgroundColor = "#27ae60";
+}
 
 function flipCard() {
   if (lockBoard) return;

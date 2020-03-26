@@ -15,11 +15,13 @@
     <div class="left-panel">
       <h2>Sélectionner un dos de carte</h2>
 
-      <div class="position-left">
+      <div style="margin-left: 10%;" class="card-selector" onclick="cardSelector(0)">
         
       </div>
-
-      <div class="position-right">
+      <div class="card-selector" onclick="cardSelector(1)">
+        
+      </div>
+      <div class="card-selector" onclick="cardSelector(2)">
         
       </div>
 
@@ -28,16 +30,16 @@
     <div class="right-panel">
       <h2 style="margin-bottom: 30px;">Sélectionner un plateau de jeu</h2>
 
-      <div class="level-selector">
+      <div class="level-selector" id="ls0" onclick="gameSelector(0)">
         <h3>Plateau 2/3</h3>
       </div>
-      <div class="level-selector">
+      <div class="level-selector" id="ls1" onclick="gameSelector(1)">
         <h3>Plateau 3/6</h3>
       </div>
-      <div class="level-selector">
+      <div class="level-selector" id="ls2" onclick="gameSelector(2)">
         <h3>Plateau 3/12</h3>
       </div>
-      <div class="level-selector">
+      <div class="level-selector" id="ls3" onclick="gameSelector(3)">
         <h3>Plateau difficile</h3>
       </div>
     </div>

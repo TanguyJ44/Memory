@@ -32,6 +32,7 @@
     font-size: 60px;
     font-family: 'Patrick Hand SC', cursive;
     color: white;
+    user-select: none;
   }
 
   .left-panel {
@@ -56,29 +57,13 @@
     background-color: teal;
   }
 
-  .position-left {
-    position: relative;
-    margin-top: 40px;
-    width: 49%;
-    height: 250px;
-    background-color: yellow;
-  }
-
-  .position-right {
-    position: relative;
-    float: right;
-    margin-top: -250px;
-    width: 49%;
-    height: 250px;
-    background-color: yellow;
-  }
-
   .menu h2 {
     margin-top: 2%;
     text-align: center;
     font-size: 30px;
     font-family: 'Patrick Hand SC', cursive;
     color: white;
+    user-select: none;
   }
 
   .menu h3 {
@@ -87,7 +72,25 @@
     font-size: 20px;
     font-family: 'Patrick Hand SC', cursive;
     color: white;
+    user-select: none;
   }
+
+.card-selector {
+  position: relative;
+  display: inline-block;
+  margin-top: 40px;
+  margin-left: 5px;
+  width: 25%;
+  height: 200px;
+  border-radius: 10px;
+  border: 2px solid #27ae60;
+  cursor: pointer;
+}
+.card-selector:hover {
+  margin-top: -5px;
+  height: 210px;
+  background-color: #27ae60;
+}
 
 .level-selector {
   position: relative;
@@ -104,13 +107,6 @@
   width: 94%;
   background-color: #27ae60;
 }
-
-
-
-
-
-
-
 
   .play {
     margin-top: 2%;
