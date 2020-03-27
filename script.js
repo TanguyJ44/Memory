@@ -6,6 +6,7 @@ let firstCard, secondCard;
 
 let gameType;
 let cardPath;
+let cardsNumber;
 
 $(function() {
   $('.game').css({'right' : '100%'});
@@ -25,7 +26,7 @@ $('.play').click(function() {
 });
 
 function cardSelector (selector) {
-  cardPath = "/img/badge_card" + selector + ".png";
+  cardPath = "img/badge_card" + selector + ".png";
 
   for (let index = 0; index < 3; index++) {
     document.getElementById('cs'+index).style.backgroundColor = "";
@@ -36,6 +37,23 @@ function cardSelector (selector) {
 
 function gameSelector (selector) {
   gameType = selector;
+
+  switch (selector) {
+    case 0:
+      cardsNumber = 6;
+      break;
+    case 1:
+      cardsNumber = 18;
+      break;
+    case 2:
+      cardsNumber = 36;
+      break;
+    case 3:
+      cardsNumber = 36;
+      break;
+    default:
+      break;
+  }
 
   for (let index = 0; index < 4; index++) {
     document.getElementById('ls'+index).style.backgroundColor = "";
@@ -52,7 +70,15 @@ function startVerificator () {
     alert("Merci de sélectionner un dos de Carte");
     return false;
   }
+
+  backCards();
   return true;
+}
+
+function backCards () {
+  for (let index = 0; index < cardsNumber; index++) {
+    document.getElementById("back-card"+index).src = cardPath;
+  }
 }
 
 function flipCard() {
