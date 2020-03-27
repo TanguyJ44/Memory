@@ -11,6 +11,10 @@ let cardsNumber;
 $(function() {
   $('.game').css({'right' : '100%'});
   $('.game').hide();
+  $('.sec1').hide();
+  $('.sec2').hide();
+  $('.sec3').hide();
+  $('.sec4').hide();
 }); 
 
 $('.play').click(function() {
@@ -20,6 +24,23 @@ $('.play').click(function() {
     setTimeout( function() {
       $('.menu').hide();
       $('.game').show();
+      switch (gameType) {
+        case 0:
+          $('.sec1').show();
+          break;
+        case 1:
+          $('.sec2').show();
+          break;
+        case 2:
+          $('.sec3').show();
+          break;
+        case 3:
+          $('.sec4').show();
+          break;
+      
+        default:
+          break;
+      }
       $('.game').animate({'left' : '2%'}, 1500);
     }, 1500 );
   }
@@ -77,7 +98,7 @@ function startVerificator () {
 
 function backCards () {
   for (let index = 0; index < cardsNumber; index++) {
-    document.getElementById("back-card"+index).src = cardPath;
+    document.getElementById("back-card"+gameType+index).src = cardPath;
   }
 }
 
@@ -99,7 +120,7 @@ function flipCard() {
 }
 
 function checkForMatch() {
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+  let isMatch = firstCard.dataset.airline === secondCard.dataset.airline;
 
   isMatch ? disableCards() : unflipCards();
 }
