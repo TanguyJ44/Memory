@@ -4,32 +4,55 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+let gameType;
+let cardPath;
+
 $(function() {
   $('.game').css({'right' : '100%'});
   $('.game').hide();
 }); 
 
 $('.play').click(function() {
-  $('.menu').animate({'right' : '100%'}, 1500);
+  if(startVerificator() == true) {
+    $('.menu').animate({'right' : '100%'}, 1500);
 
-  setTimeout( function() {
-    $('.menu').hide();
-    $('.game').show();
-    $('.game').animate({'left' : '2%'}, 1500);
-  }, 1500 );
+    setTimeout( function() {
+      $('.menu').hide();
+      $('.game').show();
+      $('.game').animate({'left' : '2%'}, 1500);
+    }, 1500 );
+  }
 });
 
 function cardSelector (selector) {
+  cardPath = "/img/badge_card" + selector + ".png";
 
+  for (let index = 0; index < 3; index++) {
+    document.getElementById('cs'+index).style.backgroundColor = "";
+  }
+
+  document.getElementById('cs'+selector).style.backgroundColor = "#27ae60";
 }
 
 function gameSelector (selector) {
+  gameType = selector;
 
   for (let index = 0; index < 4; index++) {
     document.getElementById('ls'+index).style.backgroundColor = "";
   }
 
   document.getElementById('ls'+selector).style.backgroundColor = "#27ae60";
+}
+
+function startVerificator () {
+  if(gameType == null) {
+    alert("Merci de sélectionner un Plateau");
+    return false;
+  } else if(cardPath == null) {
+    alert("Merci de sélectionner un dos de Carte");
+    return false;
+  }
+  return true;
 }
 
 function flipCard() {
