@@ -136,7 +136,7 @@
     position: relative;
     margin-top: 3%;
     margin-left: 10%;
-    width: 80%;
+    width: 95%;
     height: 1000px;
     border-radius: 10px;
     box-shadow: 8px 8px 12px #aaa;
@@ -212,8 +212,7 @@
   }
 
   .memory-game {
-    margin-top: 5px;
-    margin-left: 25%;
+    margin-top: 10px;
     height: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -222,9 +221,11 @@
 
   .mg1 {
     width: 45%;
+    margin-left: 30%;
   }
   .mg2 {
     width: 85%;
+    margin-left: 10%;
   }
 
   .memory-card {
@@ -235,7 +236,7 @@
     transform: scale(1);
     transform-style: preserve-3d;
     transition: transform .5s;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    cursor: pointer;
   }
 
   .mc1 {
@@ -271,4 +272,11 @@
 
   .card-correction {
     background: none;
+  }
+
+  img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
   }

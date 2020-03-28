@@ -7,6 +7,12 @@ let firstCard, secondCard;
 let gameType;
 let cardPath;
 let cardsNumber;
+let findCards = 0;
+let attempt = 0;
+
+let firstCardId;
+let secondCardId;
+let switchCard = false;
 
 $(function() {
   $('.game').css({'right' : '100%'});
@@ -27,21 +33,25 @@ $('.play').click(function() {
       switch (gameType) {
         case 0:
           $('.sec1').show();
+          document.getElementById("panel-title").innerText = "Plateau 2/3";
           break;
         case 1:
           $('.sec2').show();
+          document.getElementById("panel-title").innerText = "Plateau 3/6";
           break;
         case 2:
           $('.sec3').show();
+          document.getElementById("panel-title").innerText = "Plateau 6/6";
           break;
         case 3:
           $('.sec4').show();
+          document.getElementById("panel-title").innerText = "Plateau Difficile";
           break;
       
         default:
           break;
       }
-      $('.game').animate({'left' : '2%'}, 1500);
+      $('.game').animate({'left' : '-4%'}, 1500);
     }, 1500 );
   }
 });
@@ -102,6 +112,16 @@ function backCards () {
   }
 }
 
+function cardIdentify (id) {
+  if(switchCard == false) {
+    firstCardId = id;
+    switchCard = true;
+  } else if(switchCard == true) {
+    secondCardId = id;
+    switchCard = false;
+  }
+}
+
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
@@ -122,7 +142,26 @@ function flipCard() {
 function checkForMatch() {
   let isMatch = firstCard.dataset.airline === secondCard.dataset.airline;
 
+  attempt++;
+
   isMatch ? disableCards() : unflipCards();
+
+  if(isMatch == true) {
+    findCards +=2;
+
+    $(function() {
+      setTimeout( function() {
+        $("."+firstCardId).css({"opacity" : "0"});
+        $("."+secondCardId).css({"opacity" : "0"});
+      }, 1000 );
+    });
+
+    winDetector();
+  }
+}
+
+function winDetector () {
+  if(cardsNumber == findCards) console.log("Game finish !");
 }
 
 function disableCards() {
