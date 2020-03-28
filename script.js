@@ -9,6 +9,7 @@ let cardPath;
 let cardsNumber;
 let findCards = 0;
 let attempt = 0;
+let chronoStart = false;
 
 let firstCardId;
 let secondCardId;
@@ -22,6 +23,10 @@ $(function() {
   $('.sec3').hide();
   $('.sec4').hide();
 }); 
+
+$('.reload').click(function() {
+  location.reload();
+});
 
 $('.play').click(function() {
   if(startVerificator() == true) {
@@ -113,6 +118,12 @@ function backCards () {
 }
 
 function cardIdentify (id) {
+
+  if(chronoStart == false) {
+    chronoStart = true;
+    // start chrono
+  }
+
   if(switchCard == false) {
     firstCardId = id;
     switchCard = true;
@@ -154,14 +165,22 @@ function checkForMatch() {
         $("."+firstCardId).css({"opacity" : "0"});
         $("."+secondCardId).css({"opacity" : "0"});
       }, 1000 );
+      setTimeout( function() {
+        winDetector();
+      }, 1200 );
     });
-
-    winDetector();
   }
 }
 
 function winDetector () {
-  if(cardsNumber == findCards) console.log("Game finish !");
+  if(cardsNumber == findCards) {
+
+    document.getElementById("attempt").innerText = attempt;
+
+    $(function() {
+      $('.finish').show();
+    });
+  }
 }
 
 function disableCards() {
