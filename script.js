@@ -157,6 +157,7 @@ function checkForMatch() {
   let isMatch = firstCard.dataset.airline === secondCard.dataset.airline;
 
   attempt++;
+  document.getElementById("score-attempt").innerText = "Tentatives : " + attempt;
 
   isMatch ? disableCards() : unflipCards();
 
@@ -203,6 +204,8 @@ function onChrono () {
     chronoMinute++;
     chronoSecond = 0;
   }
+
+  document.getElementById("score-chrono").innerText = "Temps : " + chronoMinute + " : " + chronoSecond;
 
   if(chronoStart == true) setTimeout(onChrono, 1000);
 }

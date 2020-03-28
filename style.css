@@ -158,6 +158,21 @@
     color: white;
   }
 
+  .score {
+    position: relative;
+    margin-top: -120px;
+    margin-left: 10%;
+    width: 20%;
+    height: 100px;
+  }
+
+  .score h3 {
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Patrick Hand SC', cursive;
+    color: white;
+  }
+
   .finish {
     position: relative;
     margin-top: 40px;
@@ -249,7 +264,7 @@
   }
 
   .memory-game {
-    margin-top: 10px;
+    margin-top: 30px;
     height: 20px;
     display: flex;
     flex-wrap: wrap;
