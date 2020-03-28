@@ -264,6 +264,10 @@
     width: 85%;
     margin-left: 10%;
   }
+  .mg3 {
+    width: 85%;
+    margin-left: 10%;
+  }
 
   .memory-card {
     /*height: calc(33.333% - 10px);*/
@@ -280,6 +284,9 @@
     width: calc(30% - 10px);
   }
   .mc2 {
+    width: calc(16% - 10px);
+  }
+  .mc3 {
     width: calc(16% - 10px);
   }
   

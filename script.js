@@ -15,6 +15,9 @@ let firstCardId;
 let secondCardId;
 let switchCard = false;
 
+let chronoSecond = 0;
+let chronoMinute = 0;
+
 $(function() {
   $('.game').css({'right' : '100%'});
   $('.game').hide();
@@ -121,7 +124,7 @@ function cardIdentify (id) {
 
   if(chronoStart == false) {
     chronoStart = true;
-    // start chrono
+    onChrono();
   }
 
   if(switchCard == false) {
@@ -175,12 +178,27 @@ function checkForMatch() {
 function winDetector () {
   if(cardsNumber == findCards) {
 
+    chronoStart = false;
+
+    document.getElementById("finish-chrono").innerText = chronoMinute + " : " + chronoSecond;
     document.getElementById("attempt").innerText = attempt;
 
     $(function() {
       $('.finish').show();
     });
   }
+}
+
+function onChrono () {
+  if(chronoSecond < 59) chronoSecond++;
+  else {
+    chronoMinute++;
+    chronoSecond = 0;
+  }
+
+  console.log(chronoMinute + " : " + chronoSecond);
+
+  if(chronoStart == true) setTimeout(onChrono, 1000);
 }
 
 function disableCards() {
