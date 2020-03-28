@@ -137,7 +137,7 @@
     margin-top: 3%;
     margin-left: 10%;
     width: 95%;
-    height: 1000px;
+    height: 1500px;
     border-radius: 10px;
     box-shadow: 8px 8px 12px #aaa;
     background-color: #27ae60;
@@ -268,6 +268,10 @@
     width: 85%;
     margin-left: 10%;
   }
+  .mg4 {
+    width: 85%;
+    margin-left: 10%;
+  }
 
   .memory-card {
     /*height: calc(33.333% - 10px);*/
@@ -287,6 +291,9 @@
     width: calc(16% - 10px);
   }
   .mc3 {
+    width: calc(16% - 10px);
+  }
+  .mc4 {
     width: calc(16% - 10px);
   }
   

@@ -169,6 +169,14 @@ function checkForMatch() {
         $("."+secondCardId).css({"opacity" : "0"});
       }, 1000 );
       setTimeout( function() {
+
+        if(gameType == 3) {
+          cards.forEach(card => {
+            let randomPos = Math.floor(Math.random() * 12);
+            card.style.order = randomPos;
+          });
+        }
+
         winDetector();
       }, 1200 );
     });
@@ -195,8 +203,6 @@ function onChrono () {
     chronoMinute++;
     chronoSecond = 0;
   }
-
-  console.log(chronoMinute + " : " + chronoSecond);
 
   if(chronoStart == true) setTimeout(onChrono, 1000);
 }
