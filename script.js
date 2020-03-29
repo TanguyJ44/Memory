@@ -23,6 +23,7 @@ let clickEnabled = true;
 $(function() {
   $('.game').css({'right' : '100%'});
   $('.game').hide();
+  $('.history').hide();
   $('.sec1').hide();
   $('.sec2').hide();
   $('.sec3').hide();
@@ -40,6 +41,7 @@ $('.play').click(function() {
     setTimeout( function() {
       $('.menu').hide();
       $('.game').show();
+      $('.history').show();
       switch (gameType) {
         case 0:
           $('.sec1').show();
