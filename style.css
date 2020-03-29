@@ -173,7 +173,7 @@
     color: white;
   }
 
-  .history{
+  .history-button{
     position: relative;
     margin-top: -100px;
     margin-left: 75%;
@@ -181,7 +181,7 @@
     height: 100px;
   }
 
-  .history h3 {
+  .history-button h3 {
     text-align: center;
     font-size: 25px;
     font-family: 'Patrick Hand SC', cursive;

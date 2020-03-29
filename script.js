@@ -20,10 +20,12 @@ let chronoMinute = 0;
 
 let clickEnabled = true;
 
+let buttonHistory = false;
+
 $(function() {
   $('.game').css({'right' : '100%'});
   $('.game').hide();
-  $('.history').hide();
+  $('.history-button').hide();
   $('.sec1').hide();
   $('.sec2').hide();
   $('.sec3').hide();
@@ -41,7 +43,7 @@ $('.play').click(function() {
     setTimeout( function() {
       $('.menu').hide();
       $('.game').show();
-      $('.history').show();
+      $('.history-button').show();
       switch (gameType) {
         case 0:
           $('.sec1').show();
@@ -211,13 +213,25 @@ function winDetector () {
 
     chronoStart = false;
 
-    document.getElementById("finish-chrono").innerText = chronoMinute + " : " + chronoSecond;
+    if(chronoMinute < 10){
+    if(chronoSecond < 10){
+    document.getElementById("finish-chrono").innerText = "0" + chronoMinute + " : 0" + chronoSecond;
+    }else {
+      document.getElementById("finish-chrono").innerText = "0" + chronoMinute + " : " + chronoSecond;
+    }
+  }else {
+    if(chronoSecond < 10){
+      document.getElementById("finish-chrono").innerText = chronoMinute + " : 0" + chronoSecond;
+    }else {
+      document.getElementById("finish-chrono").innerText = chronoMinute + " : " + chronoSecond;
+    }
+  }
     document.getElementById("attempt").innerText = attempt;
 
     $(function() {
       $('.finish').show();
       $('.score').hide();
-      $('.history').hide();
+      $('.history-button').hide();
     });
   }
 }
@@ -245,6 +259,22 @@ function onChrono () {
   
 
   if(chronoStart == true) setTimeout(onChrono, 1000);
+}
+
+function history() {
+  if (buttonHistory == false) {
+    chronoStart = false;
+    $(function() {
+      $('.history').show();
+    });
+    buttonHistory = true;
+  } else {
+    chronoStart = true;
+    $(function() {
+      $('.history').hide();
+    });
+    buttonHistory = false;
+  }
 }
 
 function disableCards() {
