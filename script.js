@@ -18,6 +18,8 @@ let switchCard = false;
 let chronoSecond = 0;
 let chronoMinute = 0;
 
+let clickEnabled = true;
+
 $(function() {
   $('.game').css({'right' : '100%'});
   $('.game').hide();
@@ -133,6 +135,9 @@ function cardIdentify (id) {
   } else if(switchCard == true) {
     secondCardId = id;
     switchCard = false;
+
+    clickEnabled = false;
+    console.log("false");
   }
 }
 
@@ -159,7 +164,16 @@ function checkForMatch() {
   attempt++;
   document.getElementById("score-attempt").innerText = "Tentatives : " + attempt;
 
-  isMatch ? disableCards() : unflipCards();
+  if(isMatch == false) {
+    unflipCards();
+
+    $(function() {
+      setTimeout( function() {
+        clickEnabled = true;
+        console.log("true");
+      }, 2000 );
+    });
+  }
 
   if(isMatch == true) {
     findCards +=2;
@@ -181,6 +195,12 @@ function checkForMatch() {
         winDetector();
       }, 1200 );
     });
+    $(function() {
+      setTimeout( function() {
+        clickEnabled = true;
+        console.log("true");
+      }, 1500 );
+    });
   }
 }
 
@@ -194,6 +214,7 @@ function winDetector () {
 
     $(function() {
       $('.finish').show();
+      $('.score').hide();
     });
   }
 }
@@ -240,4 +261,6 @@ function resetBoard() {
   });
 })();
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+cards.forEach(card => {
+  if (clickEnabled == true) card.addEventListener('click', flipCard);
+});
