@@ -217,6 +217,7 @@ function winDetector () {
     $(function() {
       $('.finish').show();
       $('.score').hide();
+      $('.history').hide();
     });
   }
 }
@@ -228,7 +229,20 @@ function onChrono () {
     chronoSecond = 0;
   }
 
-  document.getElementById("score-chrono").innerText = "Temps : " + chronoMinute + " : " + chronoSecond;
+  if(chronoMinute < 10){
+    if(chronoSecond < 10){
+    document.getElementById("score-chrono").innerText = "Temps : 0" + chronoMinute + " : 0" + chronoSecond;
+    }else {
+      document.getElementById("score-chrono").innerText = "Temps : 0" + chronoMinute + " : " + chronoSecond;
+    }
+  }else {
+    if(chronoSecond < 10){
+      document.getElementById("score-chrono").innerText = "Temps : " + chronoMinute + " : 0" + chronoSecond;
+    }else {
+      document.getElementById("score-chrono").innerText = "Temps : " + chronoMinute + " : " + chronoSecond;
+    }
+  }
+  
 
   if(chronoStart == true) setTimeout(onChrono, 1000);
 }
