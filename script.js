@@ -182,6 +182,11 @@ function checkForMatch() {
   if(isMatch == true) {
     findCards +=2;
 
+    let img = new Image();
+    img.src = 'img/airberlin.png';
+
+    document.getElementById("image-pair").appendChild(img);
+
     $(function() {
       setTimeout( function() {
         $("."+firstCardId).css({"opacity" : "0"});
