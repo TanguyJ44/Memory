@@ -232,6 +232,7 @@ function winDetector () {
       $('.finish').show();
       $('.score').hide();
       $('.history-button').hide();
+      // $('.memory-game').hide();
     });
   }
 }
@@ -264,12 +265,17 @@ function onChrono () {
 function history() {
   if (buttonHistory == false) {
     chronoStart = false;
+    clickEnabled = false;
+    console.log("false")
     $(function() {
       $('.history').show();
     });
     buttonHistory = true;
   } else {
     chronoStart = true;
+    onChrono();
+    clickEnabled = true;
+    console.log("true")
     $(function() {
       $('.history').hide();
     });
