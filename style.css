@@ -181,7 +181,7 @@
     margin-top: -100px;
     margin-left: 75%;
     width: 20%;
-    height: 100px;
+    height: 80px;
   }
 
   .history-button:hover{
@@ -258,6 +258,12 @@
     border-radius: 10px;
     border: 4px solid white;
     padding-bottom: 20px;
+  }
+
+  .history-button h3 {
+    position: relative;
+    text-align: center;
+    font-size: 25px;
   }
 
   

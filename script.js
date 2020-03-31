@@ -141,20 +141,22 @@ function cardIdentify (id) {
     switchCard = false;
 
     clickEnabled = false;
-    console.log("false");
   }
 }
 
 function flipCard() {
-  if (lockBoard) return;
-  if (this === firstCard) return;
+  if (lockBoard) {
+    return;
+  }
+  if (this === firstCard){
+    return;
+  } 
 
   this.classList.add('flip');
 
   if (!hasFlippedCard) {
     hasFlippedCard = true;
     firstCard = this;
-
     return;
   }
 
@@ -168,13 +170,14 @@ function checkForMatch() {
   attempt++;
   document.getElementById("score-attempt").innerText = "Tentatives : " + attempt;
 
+  hasFlippedCard = false;
+
   if(isMatch == false) {
     unflipCards();
 
     $(function() {
       setTimeout( function() {
         clickEnabled = true;
-        console.log("true");
       }, 2000 );
     });
   }
@@ -182,11 +185,14 @@ function checkForMatch() {
   if(isMatch == true) {
     findCards +=2;
 
-    // let data_airline = firstCard.dataset.airline
-
     let img = new Image();
-    // let source = document.getElementById(firstCard.dataset.airline).src;
-    img.src = 'img/easyjet.png';
+
+    $(function() {
+      img.src = $('.'+firstCardId).attr('src');
+    });
+
+    img.style.width = '100px';
+    img.style.height = '100px';
 
     document.getElementById("image-pair").appendChild(img);
 
@@ -210,7 +216,6 @@ function checkForMatch() {
     $(function() {
       setTimeout( function() {
         clickEnabled = true;
-        console.log("true");
       }, 1500 );
     });
   }
@@ -222,24 +227,25 @@ function winDetector () {
     chronoStart = false;
 
     if(chronoMinute < 10){
-    if(chronoSecond < 10){
-    document.getElementById("finish-chrono").innerText = "0" + chronoMinute + " : 0" + chronoSecond;
+      if(chronoSecond < 10){
+      document.getElementById("finish-chrono").innerText = "0" + chronoMinute + " : 0" + chronoSecond;
+      }else {
+        document.getElementById("finish-chrono").innerText = "0" + chronoMinute + " : " + chronoSecond;
+      }
     }else {
-      document.getElementById("finish-chrono").innerText = "0" + chronoMinute + " : " + chronoSecond;
+      if(chronoSecond < 10){
+        document.getElementById("finish-chrono").innerText = chronoMinute + " : 0" + chronoSecond;
+      }else {
+        document.getElementById("finish-chrono").innerText = chronoMinute + " : " + chronoSecond;
+      }
     }
-  }else {
-    if(chronoSecond < 10){
-      document.getElementById("finish-chrono").innerText = chronoMinute + " : 0" + chronoSecond;
-    }else {
-      document.getElementById("finish-chrono").innerText = chronoMinute + " : " + chronoSecond;
-    }
-  }
+
     document.getElementById("attempt").innerText = attempt;
 
     $(function() {
       $('.finish').show();
       $('.score').hide();
-      $('.history-button').hide();
+      //$('.history-button').hide();
       $('.history').hide();
     });
   }
@@ -274,7 +280,6 @@ function history() {
   if (buttonHistory == false) {
     chronoStart = false;
     clickEnabled = false;
-    console.log("false")
     $(function() {
       $('.history').show();
     });
@@ -283,7 +288,6 @@ function history() {
     chronoStart = true;
     onChrono();
     clickEnabled = true;
-    console.log("true")
     $(function() {
       $('.history').hide();
     });
