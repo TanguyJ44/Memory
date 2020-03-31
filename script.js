@@ -182,8 +182,11 @@ function checkForMatch() {
   if(isMatch == true) {
     findCards +=2;
 
+    // let data_airline = firstCard.dataset.airline
+
     let img = new Image();
-    img.src = 'img/airberlin.png';
+    // let source = document.getElementById(firstCard.dataset.airline).src;
+    img.src = 'img/easyjet.png';
 
     document.getElementById("image-pair").appendChild(img);
 
@@ -237,7 +240,7 @@ function winDetector () {
       $('.finish').show();
       $('.score').hide();
       $('.history-button').hide();
-      // $('.memory-game').hide();
+      $('.history').hide();
     });
   }
 }

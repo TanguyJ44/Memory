@@ -174,6 +174,9 @@
   }
 
   .history-button{
+    border-radius: 10px;
+    border: 2px solid white;
+    cursor: pointer;
     position: relative;
     margin-top: -100px;
     margin-left: 75%;
@@ -181,9 +184,18 @@
     height: 100px;
   }
 
+  .history-button:hover{
+      margin-left: 3%;
+      width: 20%;
+      margin-top: -100px;
+      margin-left: 75%;
+      background-color: teal;
+  }
+
   .history-button h3 {
+    margin-top: 6%;
     text-align: center;
-    font-size: 25px;
+    font-size: 35px;
     font-family: 'Patrick Hand SC', cursive;
     color: white;
   }
@@ -227,7 +239,28 @@
     border: 4px solid white;
   }
 
+  .history {
+    position: relative;
+    margin-top: 40px;
+    margin-left: 15%;
+    width: 70%;
+    height: 410px;
+    border-radius: 15px;
+    box-shadow: 8px 8px 12px #aaa;
+    background-color: #2980b9;
+  }
 
+  .history-layout {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10%;
+    width: 80%;
+    border-radius: 10px;
+    border: 4px solid white;
+    padding-bottom: 20px;
+  }
+
+  
   
   .header {
     position: absolute;
